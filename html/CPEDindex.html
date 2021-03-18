@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SSHZT</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css"  href="../css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../fonts/font-awesome/css/font-awesome.css">  
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="../index.html">版本号：0.0.2</a>
+          </div>
+        </div>
+    </nav>
+
+    <div class="jumbotron text-center jumbotron-fluid" style="margin-bottom:0">
+        <h1 style="color:#273746;font-family: Verdana, sans-serif; font-size:50px;">
+            Social Science Hunzi Toolkit: CPED官员可视化工具
+        </h1>
+    </div>
+       
+    <div class="container-fluid">
+        <div class="row">
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="dropdown">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    功能导航 <span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#" id="trajectory">数据查询</a></li>
+                    <li><a href="#" id="geopath" onclick="geopathplot()">职业路径</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <div class="col-md-4">
+              </div>
+              
+            <div class="col-md-4">
+                <div class="row g-3">
+                <h2 style="color:#273746;font-family: Verdana, sans-serif; font-size:40px;" class="text-lg-center">
+                    中国政治精英可视化工具
+                </h2>
+                <p class="lead">
+                    这是一个基于蒋俊彦的的CPED（Chinese Political Elites Database）的可视化项目
+                </br>
+                    我提供若干可视化工具帮助大家理解中国的官员调动，目前构思中的功能包括官员地理层面的数据可视化以及职业路径可视化。
+                <hr />
+
+                <div class="col-md-3" id="lx">
+                    <label class="form-label">类型</label>
+                    <select class="form-control" id="country" required>
+                      <option id="basetype">类型</option>
+                      <option id="population">人口</option>
+                      <option id="gdp">GDP</option>
+                      <option id="gdpg">人均GDP</option>
+                      <option id="gdpp">GDP增长</option>
+                    </select>
+                    <div>
+                      请选择你需要数据作为底的图层
+                    </div>
+                  </div>
+      
+                  <div class="col-md-3" id="nf">
+                    <label for="zip" class="form-label">年份</label>
+                    <input type="text" class="form-control" id="year" placeholder="" required>
+                    <div>
+                      请填入2000到2018年之间的年份
+                    </div>
+                  </div>
+
+                <div class="col-md-3" id="gy">
+                    <label for="zip" class="form-label">官员</label>
+                    <input type="text" class="form-control" id="gov">
+                    <div>
+                        请填入一位官员
+                    </div>
+                </div>
+
+                <div class="col-md-3" id="bt-drawplot">
+                    <button type="button" class="btn btn-primary">Draw!</button>
+                </div>
+
+                </div>
+                <br />  
+                <br /> 
+                <output id="list">
+                </output>
+                <table id="csvtable" class="table table-striped">  
+                    <thead>  
+                        <tr>  
+                            <th>    
+                                
+                            </th>  
+                            <th>    
+                                
+                            </th> 
+                        </tr>  
+                    </thead>  
+                    <tbody></tbody>  
+                </table>     
+                <hr /> 
+            <div id="map">
+
+            </div>  
+            </div>
+            </div>
+                
+            </div>
+      
+            <div class="col-md-4">
+
+            </div>
+        
+    </div>
+
+                  
+
+
+ <!-- Footer -->
+ <div id="footer">
+    <div class="container text-center">
+      <div class="fnav">
+        <p>Copyright &copy; 社科混子. Designed by <a href="http://www.templatewire.com" rel="nofollow">TemplateWire</a></p>
+      </div>
+    </div>
+  </div>
+    <!-- Copyright -->
+  <!-- Footer -->
+        
+    </footer>
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <!-- D3 ralated -->
+    <script src="../js/d3.min.js"></script>
+    <script src="../js/topojson.min.js"></script>
+    <script src="../js/d3-queue.min.js"></script>
+    <script src="../js/cpedvis.js"></script>
+    
+
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+</body>
+
+

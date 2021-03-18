@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SSHZT</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css"  href="../css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../fonts/font-awesome/css/font-awesome.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="../index.html">版本号：0.0.2</a>
+          </div>
+        </div>
+    </nav>
+
+    <div class="jumbotron text-center jumbotron-fluid" style="margin-bottom:0">
+        <h1 style="color:#273746;font-family: Verdana, sans-serif; font-size:50px;">
+            Social Science Hunzi Toolkit
+        </h1>
+    </div>
+       
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4">
+         
+            </div>
+            <div class="col-lg-4">
+                <h2 style="color:#273746;font-family: Verdana, sans-serif; font-size:40px;" class="text-lg-center">
+                    巡视组研究编码
+                </h2>
+                <p class="lead">
+                    这是一个有关巡视组研究的前期编码工作，我们希望可以了解官方在巡视组及其他相关
+                    类似的文本中的用语习惯。
+                </br>
+                    请大家首先上传派发给诸位的csv文件，该页面会实现转码工作，接着请大家点击按钮
+                    进入到选择界面。谢谢大家！
+                </br>
+                </p>
+                <form class="form" role="form">
+                    <div class="form-group">
+                        <label class="sr-only" for="inputfile">文件输入</label>
+                        <input type="file" id="csvfile"> 
+                    </div>
+                    <button type="button" class="btn btn-primary" id="viewfile" onclick="ExportToTable()">
+                        预览并上传
+                    </button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#startmodal">
+                        点击开始
+                    </button>
+                </form>
+                <hr />
+                <br />  
+                <br /> 
+                <output id="list">
+                </output>
+                <hr /> 
+                <table id="csvtable" class="table table-striped">  
+                    <thead>  
+                        <tr>  
+                            <th>    
+                                
+                            </th>  
+                            <th>    
+                                
+                            </th> 
+                        </tr>  
+                    </thead>  
+                    <tbody></tbody>  
+                </table>     
+
+            </div>
+            <div class="col-lg-4">
+                
+            </div>
+        
+        
+            <!-- 模态框 -->
+            <div class="modal fade" id="startmodal">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+        
+                        <!-- 模态框头部 -->
+                        <div class="modal-header">
+                            <h4 class="modal-title">巡视组数据收集说明</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+        
+                        <!-- 模态框主体 -->
+                        <div class="modal-body">
+                            <p class="card-text">你将会看到两个不同的句子（如果我犯错了，也可能是一样的）</p>
+                            <p class="card-text">请根据个人判断对两个句子的严厉程度做出判断</p>
+                            <p class="card-text">完成测试之后，请点击保存文件，并发给LL，感谢</p>
+                            <p class="card-text">
+                                <strong>注意：</strong>请用Chrome浏览器完成！！！(水平太菜</p>
+                        </div>
+        
+                        <!-- 模态框底部 -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" onclick="location.href='quiz.html'">知道了！</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">稍后再做</button>
+                        </div>
+        
+                    </div>
+                </div>
+            </div>
+    </div>
+    </div>
+        
+                  
+
+
+ <!-- Footer -->
+ <div id="footer">
+    <div class="container text-center">
+      <div class="fnav">
+        <p>Copyright &copy; 社科混子. Designed by <a href="http://www.templatewire.com" rel="nofollow">TemplateWire</a></p>
+      </div>
+    </div>
+  </div>
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/quiz_home.js"></script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.csv.js"></script>
+</body>
+
+
