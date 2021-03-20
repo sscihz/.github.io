@@ -12,19 +12,15 @@
         //var basetype = d3.select('#basetype option:checked').attr('id')
         //var year = d3.select('#year').text()
         var umap = []
-        var city_dta = d3.csv("../data/Yearbook.csv")
         var data=[["Gansu",48],["Qinghai",47],["Guangxi",45],["Guizhou",35],["Chongqing",34],["Beijing",12],["Fujian",35],["Anhui",6],["Guangdong",40],["Xizang",3],["Xinjiang",12],["Hainan",21],["Ningxia",8],["Shaanxi",40],["Shanxi",11],["Hubei",1],["Hunan",23],["Sichuan",19],["Yunnan",19],["Hebei",34],["Henan",20],["Liaoning",14],["Shandong",0],["Tianjin",12],["Jiangxi",20],["Jiangsu",37],["Shanghai",34],["Zhejiang",46],["Jilin",38],["Inner Mongol",10],["Heilongjiang",20],["Taiwan",45],["Xianggang",35],["Macau",10]];
-        var title='Population of Sina Weibo users for a specific keyword';
-        var desc='Based on Sina Weibo user profiles during a period of time. Data from weiboscope.';
-        var credits='by Clement Renaud - 2013';
-        var units='Volume of tweets';
+        var title='';
+        var desc='Based on Jiang‘s CPED';
+        var credits='by SKHZ Group';
+        
 
         data.map(function(d) {umap[d[0]]=Number(d[1])});
-        console.log(umap);
-        console.log(city_dta);
-
         var v = Object.keys(umap).map(function(k){return umap[k]})
-        console.log(v)
+
     //}
     
 
@@ -154,32 +150,26 @@
         .attr("font-family", "sans-serif")
         .attr("fill", "#4b4b4b")
         .attr("font-size", 10)
-        .text(units)
         .call(wrap, 50);
 
-    var file = ["../data/maps/zh-mainland-provinces.topo.json","../data/maps/citiestopo.json"];
-    
-    var promises = [];
+    var file = "../data/maps/zh-mainland-provinces.topo.json";
+    var file_city = "../data/maps/citiestopo.json";
+    var city_dta = d3.csv("../data/Yearbook.csv");
 
-    file.forEach(function(url) {
-    promises.push(d3.json(url))
-    });
 
-    Promise.all(promises).then(function(values) {
-        console.log(values)}
-        );
-    
-    Promise.all(promises).then(drawplots);
+    d3.json(file).then(function(values) {
+        console.log(values)});
+    d3.json(file).then(drawProvinces);
 
-    function drawplots(pv,ct){
-        drawProvinces(pv);
-        drawcities(ct);
-    }
+    d3.json(file_city).then(function(values) {
+        console.log(values)});
+    d3.json(file_city).then(drawcities);
+
+
 
     // Mainland provinces
     function drawProvinces(cn) {
         console.log(cn[0])
-
         svg.append("g")
         .attr("class", "map")
             .append("g")
@@ -198,7 +188,7 @@
     }
 
     function drawcities(cn) {
-        console.log(cn)
+        console.log(cn[0])
 
         svg.append("g")
         .attr("class", "map")
